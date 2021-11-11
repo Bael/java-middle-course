@@ -12,6 +12,6 @@ public class BaseEvent {
     }
     public BaseEvent() {
         System.out.println("Base Event constructor called!");
-//        createdOn = LocalDateTime.now();
+
     }
 }
