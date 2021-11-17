@@ -31,24 +31,19 @@ public class ExampleOne  {
 
     public static void serialize(List<Object> objects, String fileName) throws IOException {
         try (var objectOutputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)))) {
-//            objectOutputStream.write(objects.size());
-
             for (Object object : objects) {
                 objectOutputStream.writeObject(object);
             }
         }
     }
 
+    // костыльный способ чтения объектов (не можем прочитать произвольное количество)
     public static List<Object> deserialize(String fileName, int count) throws IOException, ClassNotFoundException {
         List<Object> objects = new ArrayList<>();
         Path path = Paths.get(fileName);
         File file = new File(fileName);
         System.out.println(file.exists());
-
         try (var objectInputStream = new ObjectInputStream(new BufferedInputStream(new FileInputStream(fileName)))) {
-
-//            int count = objectInputStream.readInt();
-            System.out.println(count);
             while (count-- > 0) {
                 objects.add(objectInputStream.readObject());
             }
