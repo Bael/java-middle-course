@@ -13,6 +13,9 @@ public class SerializationFilterExample implements Serializable {
     protected String b = "B";
     protected transient String c = "C";
 
+    // нужно указывать идентификатор версии класса.
+    private static final long serialVersionUID = 42L;
+
     public SerializationFilterExample() {
     }
 
